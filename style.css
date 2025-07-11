@@ -507,3 +507,23 @@ button {
         opacity: 0;
     }
 }
+
+.save-other-number {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 10%;
+    top: 36%;
+    border-radius: 20px;
+    z-index: 100;
+    font-weight: bold;
+    color: #177b7c;
+    background-color: var(--secondary-color);
+    width: 320px;
+    box-shadow: 3px 0px 5px #177a7c87,
+        -3px 0px 5px #b51d4669,
+        0 -3px 5px #177a7c87,
+        0 3px 5px #b51d4669;
+}
