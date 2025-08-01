@@ -22,14 +22,7 @@
         "activeTab",
         "storage"
     ],
-    "content_scripts": [
-        {
-            "js": [
-                "dist/logic.js"
-            ],
-            "css": [
-                "dist/style.min.css"
-            ]
-        }
-    ]
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    }
 }
