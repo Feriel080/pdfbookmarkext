@@ -57,8 +57,7 @@ h1 {
 }
 
 #already-exist,
-#saved,
-#other-page {
+#saved {
     display: none;
     cursor: default;
     font-weight: lighter;
@@ -66,6 +65,16 @@ h1 {
     font-size: 1rem;
     opacity: 0;
     transition: opacity 0.4s;
+}
+
+#other-page {
+    display: none;
+    cursor: default;
+    font-weight: lighter;
+    color: #177b7c;
+    font-size: 1rem;
+    /* opacity: 0; */
+    /* transition: opacity 0.4s; */
 }
 
 #already-exist[style*="display: block"],
@@ -86,7 +95,6 @@ h1 {
     }
 }
 
-#other-page,
 #saved {
     margin-top: 8px;
 }
@@ -362,6 +370,53 @@ button {
     font-weight: 500;
 }
 
+.number-of-pages {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'montserrat';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15pt;
+}
+
+.number-of-pages:hover {
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.page-list {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    right: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #0002;
+    z-index: 1000;
+    padding: 5px;
+    min-width: 60px;
+    max-height: 70px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.pagenumber-container {
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    padding-left: 10px;
+    box-shadow:
+        inset 5px -5px 5px 0px #dfdeda,
+        inset -5px 5px 10px 0px #f8edda;
+}
+
+
 #add-button,
 #deleteAll-button {
     font-size: 15pt;
@@ -410,17 +465,17 @@ button {
     position: relative;
 }
 
-.update:hover .static,
+.update:not(:disabled):hover .static,
 .delete:hover .static {
     display: none;
 }
 
-.update:hover .gif,
+.update:not(:disabled):hover .gif,
 .delete:hover .gif {
     display: block;
 }
 
-.update[data-tooltip]:hover::after,
+.update[data-tooltip]:not(:disabled):hover::after,
 .delete[data-tooltip]:hover::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -442,6 +497,11 @@ button {
     left: 100%;
 }
 
+.update:disabled{
+    cursor: default;
+    opacity: 0.5;
+}
+
 .delete[data-tooltip]:hover::after {
     background-color: #b51d46d9;
     top: 0;
@@ -460,7 +520,8 @@ button {
     cursor: default;
 }
 
-#copied-page-number {
+#copied-page-number,
+#updated-successfully {
     /* display: none; */
     position: absolute;
     left: 50%;
@@ -471,7 +532,7 @@ button {
     white-space: nowrap;
     border-radius: 10px;
     text-align: center;
-    z-index: 100;
+    z-index: 10000;
     background-color: #268c8ed8;
     margin-top: 5px;
     pointer-events: none;
@@ -508,7 +569,7 @@ button {
     }
 }
 
-.save-other-number {
+#save-other-number {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -518,7 +579,6 @@ button {
     top: 36%;
     border-radius: 20px;
     z-index: 100;
-    font-weight: bold;
     color: #177b7c;
     background-color: var(--secondary-color);
     width: 320px;
@@ -526,4 +586,36 @@ button {
         -3px 0px 5px #b51d4669,
         0 -3px 5px #177a7c87,
         0 3px 5px #b51d4669;
+    font-size: 1rem;
+}
+
+#save-other-number.shown~*:not(#save-other-number),
+#save-other-number.shown~* * {
+    filter: blur(1px);
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#save-other-number p {
+    margin-left: 10px;
+}
+
+.buttons- {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 10px;
+}
+
+#update-page-number:hover .on-hover,
+#save-new:hover .on-hover,
+#cancel-saving:hover .on-hover {
+    display: block;
+}
+
+#update-page-number:hover .normal,
+#save-new:hover .normal,
+#cancel-saving:hover .normal {
+    display: none;
 }

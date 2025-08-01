@@ -1,113 +1,86 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title>BOOKMARKS</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <title>BOOKMARKS</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class="background">
-        <header>
-            <h1>BOOKMARK</h1>
-            <img src="icons/bookmark.png" alt="bookmark" width="50px" height="50px">
-        </header>
+  <div class="background">
+    <header>
+      <h1>BOOKMARK</h1>
+      <img src="icons/bookmark.png" alt="bookmark" width="50px" height="50px" />
+    </header>
 
-        <main class="content">
-            <div id="add-page-number" class="hidden">
-                <div class="upper-row">
-                    <div class="saved-or-exist">
-                        <p id="already-exist" class="no-exist">Page already exist.</p>
-                        <p id="saved" class="no-saved">Bookmark was saved successfully ✓</p>
-                        <p id="other-page" class="no-other-page"></p>
-                    </div>
-                    <div class="save-cancel">
-                        <button id="save-number">
-                            <img src="icons/save.png" alt="save" width="30px" height="30px" class="normal">
-                            <img src="icons/save-hover.png" alt="save" width="30px" height="30px" class="on-hover">
-                        </button>
-                        <button id="cancel">
-                            <img src="icons/cancel.png" alt="cancel" width="30px" height="30px" class="normal">
-                            <img src="icons/cancel-hover.png" alt="cancel" width="30px" height="30px" class="on-hover">
-                        </button>
-                    </div>
-                </div>
-                <div class="next-row">
-                    <input type="number" id="bookmark-page-number" placeholder="Enter page number" min="1">
-                </div>
-            </div>
-            <div class="buttons-container">
-                <button id="add-button" disabled>
-                    ADD
-                    <img src="icons/add.png" alt="add" width="70px" height="70px">
-                    NEW
-                </button>
-                <button id="deleteAll-button" disabled>
-                    DELETE
-                    <img src="icons/deleteA.png" alt="deleteAll" width="70px" height="70px">
-                    ALL
-                </button>
-            </div>
+    <main class="content">
 
-            <div class="bookmarks-container">
-                <div class="scrolls">
-                    <div class="scroll-line"></div>
-                </div>
-                <div id="copied-page-number">Page Number copied to clipboard</div>
-                <div class="bookmarqs">
-                    <div class="bookmarks" id="bookmark1">
-                        <button class="update" data-tooltip="Update">
-                            <img src="icons/update.png" alt="update" width="60px" height="60px" class="static">
-                            <img src="icons/upd1.gif" alt="update" width="60px" height="60px" class="gif">
-                        </button>
-                        <div class="bookmark-title">
-                            <h3>Title1:</h3>
-                        </div>
-                        <button class="pagenumber"> 1</button>
-                        <button class="delete" data-tooltip="Delete">
-                            <img src="icons/delete.png" alt="delete" width="50px" height="50px" class="static">
-                            <img src="icons/del1.gif" alt="delete" width="50px" height="50px" class="gif">
-                        </button>
-                    </div>
-                    <div class="bookmarks" id="bookmark2">
-                        <button class="update" data-tooltip="Update">
-                            <img src="icons/update.png" alt="update" width="60px" height="60px" class="static">
-                            <img src="icons/upd1.gif" alt="update" width="60px" height="60px" class="gif">
-                        </button>
-                        <h3>Title2:</h3>
-                        <button class="pagenumber"> 6</button>
-                        <button class="delete" data-tooltip="Delete">
-                            <img src="icons/delete.png" alt="delete" width="50px" height="50px" class="static">
-                            <img src="icons/del1.gif" alt="delete" width="50px" height="50px" class="gif">
-                        </button>
-                    </div>
-                    <div class="bookmarks" id="bookmark3">
-                        <button class="update" data-tooltip="Update">
-                            <img src="icons/update.png" alt="update" width="60px" height="60px" class="static">
-                            <img src="icons/upd1.gif" alt="update" width="60px" height="60px" class="gif">
-                        </button>
-                        <div class="bookmark-title">
-                            <label>Title3 jjks jsfkdj sdj sdjsdf kjdf lksd hhhdiowh hhgskd nnjshd</label>
-                            <h3>Title3 jjks jsfkdj sdj sdjsdf kjdf lksd:</h3>
-                        </div>
-                        <button class="pagenumber"> 100</button>
-                        <button class="delete" data-tooltip="Delete">
-                            <img src="icons/delete.png" alt="delete" width="50px" height="50px" class="static">
-                            <img src="icons/del1.gif" alt="delete" width="50px" height="50px" class="gif">
-                        </button>
-                    </div>
-                </div>
-                <div class="number-of-bookmarks">
-                    You have 3 bookmark
-                </div>
-            </div>
-            <div class="no-bookmarks-container">
-                NO BOOKMARK WAS SAVED
-            </div>
-        </main>
-    </div>
-    <script src="logic.js"></script>
+      <div id="save-other-number" class="hidden">
+        <div class="text">
+          <p>Add another bookmark of the same document?</p>
+        </div>
+        <div class="buttons-">
+          <button id="save-new">
+            <img src="icons/save-number.png" alt="save" width="40px" height="40px" class="normal" />
+            <img src="icons/save-number-hover.png" alt="save" width="40px" height="40px" class="on-hover" />
+          </button>
+          <button id="cancel-saving">
+            <img src="icons/cancel-number.png" alt="cancel" width="30px" height="30px" class="normal" />
+            <img src="icons/cancel-number-hover.png" alt="cancel" width="30px" height="30px" class="on-hover" />
+          </button>
+        </div>
+      </div>
+      <div id="add-page-number" class="hidden">
+        <div class="upper-row">
+          <div class="saved-or-exist">
+            <p id="already-exist" class="no-exist">Bookmark already exist.</p>
+            <p id="saved" class="no-saved">
+              Bookmark was saved successfully ✓
+            </p>
+            <p id="other-page" class="no-other-page">Updating a bookmark</p>
+          </div>
+          <div class="save-cancel">
+            <button id="save-number">
+              <img src="icons/save.png" alt="save" width="30px" height="30px" class="normal" />
+              <img src="icons/save-hover.png" alt="save" width="30px" height="30px" class="on-hover" />
+            </button>
+            <button id="cancel">
+              <img src="icons/cancel.png" alt="cancel" width="30px" height="30px" class="normal" />
+              <img src="icons/cancel-hover.png" alt="cancel" width="30px" height="30px" class="on-hover" />
+            </button>
+          </div>
+        </div>
+        <div class="next-row">
+          <input type="number" id="bookmark-page-number" placeholder="Enter page number" min="1" />
+        </div>
+      </div>
+      <div class="buttons-container">
+        <button id="add-button" disabled>
+          ADD
+          <img src="icons/add.png" alt="add" width="70px" height="70px" />
+          NEW
+        </button>
+        <button id="deleteAll-button" disabled>
+          DELETE
+          <img src="icons/deleteA.png" alt="deleteAll" width="70px" height="70px" />
+          ALL
+        </button>
+      </div>
+
+      <div class="bookmarks-container">
+        <div class="scrolls">
+          <div class="scroll-line"></div>
+        </div>
+        <div id="copied-page-number">Page Number copied to clipboard</div>
+        <div id="updated-successfully">Updated successfully ✓</div>
+        <div class="bookmarqs">
+          <!-- HERE WHERE THE BOOKMARKS MUST BE -->
+        </div>
+        <div class="number-of-bookmarks"></div>
+      </div>
+      <div class="no-bookmarks-container">NO BOOKMARK WAS SAVED</div>
+    </main>
+  </div>
+  <script type="module" src="logic.js"></script>
 </body>
-
 </html>
