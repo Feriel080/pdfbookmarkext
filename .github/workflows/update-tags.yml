@@ -15,8 +15,7 @@ jobs:
 
       - name: Move tag to current commit
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global Feriel080 "GitHub Actions"
           
           # Force-move the tag (deletes old, creates new)
           git tag -f v1.0
