@@ -21,5 +21,15 @@
         "tabs",
         "activeTab",
         "storage"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "dist/logic.js"
+            ],
+            "css": [
+                "dist/style.min.css"
+            ]
+        }
     ]
 }
